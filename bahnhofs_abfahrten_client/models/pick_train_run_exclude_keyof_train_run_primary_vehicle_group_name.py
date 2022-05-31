@@ -7,11 +7,11 @@ from dateutil.parser import isoparse
 from ..models.coach_sequence_product import CoachSequenceProduct
 from ..models.train_run_stop import TrainRunStop
 
-T = TypeVar("T", bound="PickTrainRunExcludeKeyofTrainRunprimaryVehicleGroupName")
+T = TypeVar("T", bound="PickTrainRunExcludeKeyofTrainRunPrimaryVehicleGroupName")
 
 
 @attr.s(auto_attribs=True)
-class PickTrainRunExcludeKeyofTrainRunprimaryVehicleGroupName:
+class PickTrainRunExcludeKeyofTrainRunPrimaryVehicleGroupName:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
@@ -85,7 +85,7 @@ class PickTrainRunExcludeKeyofTrainRunprimaryVehicleGroupName:
 
             dates.append(dates_item)
 
-        pick_train_run_exclude_keyof_train_runprimary_vehicle_group_name = cls(
+        pick_train_run_exclude_keyof_train_run_primary_vehicle_group_name = cls(
             product=product,
             origin=origin,
             destination=destination,
@@ -93,8 +93,8 @@ class PickTrainRunExcludeKeyofTrainRunprimaryVehicleGroupName:
             dates=dates,
         )
 
-        pick_train_run_exclude_keyof_train_runprimary_vehicle_group_name.additional_properties = d
-        return pick_train_run_exclude_keyof_train_runprimary_vehicle_group_name
+        pick_train_run_exclude_keyof_train_run_primary_vehicle_group_name.additional_properties = d
+        return pick_train_run_exclude_keyof_train_run_primary_vehicle_group_name
 
     @property
     def additional_keys(self) -> List[str]:

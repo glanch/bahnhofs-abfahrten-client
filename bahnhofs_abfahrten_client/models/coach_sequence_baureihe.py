@@ -24,6 +24,7 @@ class CoachSequenceBaureihe:
 
     def to_dict(self) -> Dict[str, Any]:
         name = self.name
+
         if isinstance(self.identifier, AvailableIdentifierOnly):
             identifier = self.identifier.value
 

@@ -31,6 +31,7 @@ class SubscrChannel:
         type = self.type
         options = []
         for options_item_data in self.options:
+
             if isinstance(options_item_data, SubscrChannelNoSoundOption):
                 options_item = options_item_data.to_dict()
 

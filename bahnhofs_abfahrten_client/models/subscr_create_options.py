@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.pick_subscr_channelchannel_id import PickSubscrChannelchannelId
+from ..models.pick_subscr_channel_channel_id import PickSubscrChannelChannelId
 from ..models.subscr_interval import SubscrInterval
 
 T = TypeVar("T", bound="SubscrCreateOptions")
@@ -13,12 +13,12 @@ class SubscrCreateOptions:
     """
     Attributes:
         user_id (str):
-        channels (List[PickSubscrChannelchannelId]):
+        channels (List[PickSubscrChannelChannelId]):
         intvl_subscr (SubscrInterval):
     """
 
     user_id: str
-    channels: List[PickSubscrChannelchannelId]
+    channels: List[PickSubscrChannelChannelId]
     intvl_subscr: SubscrInterval
 
     def to_dict(self) -> Dict[str, Any]:
@@ -50,7 +50,7 @@ class SubscrCreateOptions:
         channels = []
         _channels = d.pop("channels")
         for channels_item_data in _channels:
-            channels_item = PickSubscrChannelchannelId.from_dict(channels_item_data)
+            channels_item = PickSubscrChannelChannelId.from_dict(channels_item_data)
 
             channels.append(channels_item)
 

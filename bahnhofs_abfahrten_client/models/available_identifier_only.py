@@ -12,8 +12,8 @@ class AvailableIdentifierOnly(str, Enum):
     VALUE_7 = "403.S1"
     VALUE_8 = "403.S2"
     VALUE_9 = "406.R"
-    IC2TWIN = "IC2.TWIN"
-    IC2KISS = "IC2.KISS"
+    IC2_TWIN = "IC2.TWIN"
+    IC2_KISS = "IC2.KISS"
     MET = "MET"
     TGV = "TGV"
 

@@ -2,28 +2,32 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-T = TypeVar("T", bound="PickSubscrChannelchannelId")
+T = TypeVar("T", bound="PickGroupedStopPlaceNameOrEvaNumber")
 
 
 @attr.s(auto_attribs=True)
-class PickSubscrChannelchannelId:
+class PickGroupedStopPlaceNameOrEvaNumber:
     """From T, pick a set of properties whose keys are in the union K
 
     Attributes:
-        channel_id (str):
+        name (str):
+        eva_number (str):
     """
 
-    channel_id: str
+    name: str
+    eva_number: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        channel_id = self.channel_id
+        name = self.name
+        eva_number = self.eva_number
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
-                "channelId": channel_id,
+                "name": name,
+                "evaNumber": eva_number,
             }
         )
 
@@ -32,14 +36,17 @@ class PickSubscrChannelchannelId:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        channel_id = d.pop("channelId")
+        name = d.pop("name")
 
-        pick_subscr_channelchannel_id = cls(
-            channel_id=channel_id,
+        eva_number = d.pop("evaNumber")
+
+        pick_grouped_stop_place_name_or_eva_number = cls(
+            name=name,
+            eva_number=eva_number,
         )
 
-        pick_subscr_channelchannel_id.additional_properties = d
-        return pick_subscr_channelchannel_id
+        pick_grouped_stop_place_name_or_eva_number.additional_properties = d
+        return pick_grouped_stop_place_name_or_eva_number
 
     @property
     def additional_keys(self) -> List[str]:

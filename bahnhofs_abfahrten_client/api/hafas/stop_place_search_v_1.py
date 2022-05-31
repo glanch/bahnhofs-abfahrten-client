@@ -17,24 +17,26 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/hafas/v1/stopPlace/{searchTerm}".format(client.base_url, searchTerm=search_term)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
+    params: Dict[str, Any] = {}
     json_type: Union[Unset, None, str] = UNSET
     if not isinstance(type, Unset):
         json_type = type.value if type else None
+
+    params["type"] = json_type
 
     json_profile: Union[Unset, None, str] = UNSET
     if not isinstance(profile, Unset):
         json_profile = profile.value if profile else None
 
-    params: Dict[str, Any] = {
-        "type": json_type,
-        "profile": json_profile,
-    }
+    params["profile"] = json_profile
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -79,7 +81,7 @@ def sync_detailed(
         profile=profile,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -115,6 +117,6 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
