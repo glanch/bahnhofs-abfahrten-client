@@ -20,8 +20,9 @@ setuptools = "^62.3.2"
 
 [tool.poetry.dev-dependencies]
 setuptools = "^62.3.2"
+
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.0.0", "setuptools"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
